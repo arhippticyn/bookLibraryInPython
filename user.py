@@ -1,0 +1,21 @@
+class User:
+    def __init__(self, name, email):
+        self.__name = name
+        self.__email = email
+        
+    def get_name(self):
+        return self.__name
+    
+    def set_name(self, name):
+        if not name.strip():
+            raise ValueError('Name is invalid')
+        self.__name = name
+        
+    def get_email(self):
+        return self.__email
+    
+    def set_name(self, email):
+        if '@' not in email or '.' not in email:
+            raise ValueError('Email is invalid')
+        
+        self.__email = email
