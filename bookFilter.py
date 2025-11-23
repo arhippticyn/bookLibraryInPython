@@ -24,4 +24,4 @@ class FilterByAvailble(BookFilter):
         self.availble = availble
         
     def apply(self, books):
-        return [ book for book in books if book.avaible == self.availble]
+        return [ book for book in books if not book.is_taken]

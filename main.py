@@ -5,6 +5,7 @@ from bookFilter import FilterByAuthor
 from bookFilter import FilterByYear
 from bookFilter import FilterByAvailble
 from libraryStorage import LibraryStorage
+from loan import *
 
 library = LibraryStorage()
 
@@ -22,3 +23,9 @@ results = filter_author.apply(library.list_all())
 
 for result in results:
     print(result.info())
+    
+email_sender = EmailSender()
+
+
+loan = LoanManager(library, email_sender)
+print(loan.loan_book(user, 'Harry Potter'))
